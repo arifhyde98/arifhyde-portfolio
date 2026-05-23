@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: webku-app
+    container_name: webku-app
+    restart: unless-stopped
+    volumes:
+      - .:/var/www/html
+    networks:
+      - webdev-network
+
+networks:
+  webdev-network:
+    external: true
+    name: webdev-network
